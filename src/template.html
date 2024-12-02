@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+</head>
+<body>
+    <button id="createProject">Create Project</button>
+    <dialog id="projectDialog">
+            <form id="projectForm" method="dialog">
+                <label for="projectName">Name of project
+                    <input type="text" id="projectName" name="projectName">
+                </label>
+                <label for="projectDescription">
+                    Project Description <input type="text" id="projectDescription" name="projectDescription">
+                </label>
+                <button type="submit" id="addProject">Add Project</button>
+            </form>
+        </dialog>
+    <button id="createTodo">Create todo</button>
+    <dialog id="todoDialog">
+        <form id="formTodo" method="dialog">
+            <label for="title">Title:
+                <input type="text" name="title" id="title" placeholder="Add the title for your task">
+            </label>
+            <label for="description">Description:</label>
+            <textarea name="description" id="description" rows="5" cols="20" placeholder="What is this task about"></textarea>
+            <label for="dueDate">Due date:
+                <input type="date" id="dueDate" name="dueDate" >
+            </label>
+            <label for="priority">Priority:
+                <select name="priority" id="priority">Priority
+                    <option value="high" label="High">High</option>
+                    <option value="medium" label="Medium">Medium</option>
+                    <option value="low" label="Low">Low</option>
+                </select>
+            </label>
+            <label for="notes">Notes:
+                <input type="notes" id="notes" name="notes" placeholder="Some extra notes you wanna add?">
+            </label>
+            <label for="project">
+                <select name="projects" id="projectList">Project:
+                    
+                </select>
+            </label>
+            <button type="submit" id="add" name="add">Add Task</button>
+        </form>
+
+    </dialog>
+
+</body>
+</html>
