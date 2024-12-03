@@ -4,10 +4,11 @@
 //         this.projectName = projectName;
 //     }
 // }
- function createProject(name,desciption,type='project') {
+ function createProject(name,desciption) {
   this.name = name;
   this.desciption = desciption;
-  this.todoList = [];
+   this.todoList = [];
+   this.type = 'project';
 }
 //chnage to project list here and add default project first then expot to update option
 

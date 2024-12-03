@@ -14,8 +14,11 @@ import updateOptions from "./updateOptions";
 import addToLocal from "./addToLocalStorage";
 import deleteFromLocalStorage from "./deleteFromLocalStorage";
 import getFromLocalStorage from "./getFromLocalStorage";
-const test = getFromLocalStorage();
-console.log(test);
+import populateTodo from "./populateTodo";
+
+
+//   const test = getFromLocalStorage();
+// console.log(test);
 updateOptions();
 // const get = getfromLocal();
 // console.log(get);
@@ -64,17 +67,6 @@ addProjectBtn.addEventListener('click', () => {
   updateOptions();
   console.log(createdProject);
   addToLocal(createdProject);
-  //self note : change project to object in this structure : 
-    // function ParentObject(field1, field2) {
-    //     this.field1 = field1;
-    //     this.field2 = field2;
-    //     this.nestedObjects = [];
-    //   }
-      
-    //   const parentObject = new ParentObject('value1', 'value2');
-    //   parentObject.nestedObjects.push({ id: 1, name: 'Nested Object 1' });
-    //   parentObject.nestedObjects.push({ id: 2, name: 'Nested Object 2' });
-
 })
 
 const createTodoBtn = document.querySelector("#createTodo");
@@ -106,27 +98,28 @@ addTodoBtn.addEventListener("click", () => {
       notes.value
     );
     console.log(createdTodo);
-    addToLocal(createdTodo);
-    addToProject(defaultProject, createdTodo);
-    const mainContainer = document.querySelector('.mainContainer');
-    const todoDivTemplate = document.querySelector('.todoDivTemplate')
-    const createdTodoDiv = todoDivTemplate.cloneNode(true);
-    createdTodoDiv.id = '';
-    createdTodoDiv.style.display = 'block';
-    // createdTodoDiv.classList.add('todoDiv');
-    createdTodoDiv.querySelector('.titleTemplate').textContent = 'Title : '+createdTodo.title;
-    createdTodoDiv.querySelector('.descriptionTemplate').textContent =  'Description : '+createdTodo.description;
-    createdTodoDiv.querySelector('.dueDateTemplate').textContent = 'Due Date : '+createdTodo.dueDate;
-    createdTodoDiv.querySelector('.priorityTemplate').textContent = 'Priority : ' + createdTodo.priority;
-    createdTodoDiv.querySelector('.deleteTodoBtn').textContent = 'Delete';
-    createdTodoDiv.querySelector('.deleteTodoBtn').addEventListener('click', () => {
-      mainContainer.removeChild(createdTodoDiv);
-      // let backtoobject = localStorage.getItem(stringTodo);
-      // JSON.parse(backtoobject);
-      // localStorage.removeItem(backtoobject);
-      deleteFromLocalStorage(createdTodo);
-    })
-    mainContainer.appendChild(createdTodoDiv);
+      addToLocal(createdTodo);
+   
+    // addToProject(defaultProject, createdTodo);
+    getFromLocalStorage();
+    // const mainContainer = document.querySelector('.mainContainer');
+    // const todoDivTemplate = document.querySelector('.todoDivTemplate')
+    // const createdTodoDiv = todoDivTemplate.cloneNode(true);
+    // createdTodoDiv.id = '';
+    // createdTodoDiv.style.display = 'block';
+    // createdTodoDiv.querySelector('.titleTemplate').textContent = 'Title : '+createdTodo.title;
+    // createdTodoDiv.querySelector('.descriptionTemplate').textContent =  'Description : '+createdTodo.description;
+    // createdTodoDiv.querySelector('.dueDateTemplate').textContent = 'Due Date : '+createdTodo.dueDate;
+    // createdTodoDiv.querySelector('.priorityTemplate').textContent = 'Priority : ' + createdTodo.priority;
+    // createdTodoDiv.querySelector('.deleteTodoBtn').textContent = 'Delete';
+    // createdTodoDiv.querySelector('.deleteTodoBtn').addEventListener('click', () => {
+    //   mainContainer.removeChild(createdTodoDiv);
+    //   // let backtoobject = localStorage.getItem(stringTodo);
+    //   // JSON.parse(backtoobject);
+    //   // localStorage.removeItem(backtoobject);
+    //   deleteFromLocalStorage(createdTodo);
+    // })
+    // mainContainer.appendChild(createdTodoDiv);
     
   } else {
     alert('Please fill out all the fields');
