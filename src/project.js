@@ -4,15 +4,23 @@
 //         this.projectName = projectName;
 //     }
 // }
-export let projectListArray = [];
-export function createProject() {
-  return [];
+ function createProject(name,desciption) {
+  this.name = name;
+  this.desciption = desciption;
+  this.todoList = [];
+}
+//chnage to project list here and add default project first then expot to update option
+
+function addToProject(projectName, todoName) {
+  projectName.todoList.push(todoName);
 }
 
-export function addToProject(projectName, todoName) {
-  projectName.push(todoName);
+function deletefromProject(projectName, todoName) {
+  projectName.todoList.pop(todoName);
 }
 
-export function deletefromProject(projectName, todoName) {
-  projectName.pop(todoName);
-}
+let projectListArray = [];
+const defaultProject = new createProject('Default','default tasks');
+projectListArray.push(defaultProject);
+
+export { projectListArray,addToProject,deletefromProject,createProject,defaultProject}

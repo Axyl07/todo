@@ -6,7 +6,23 @@
     <title>Todo</title>
 </head>
 <body>
-    <button id="createProject">Create Project</button>
+    <header>
+        <div class="header"><h1>TO-DO List</h1></div>
+        <button id="createTodo">Create todo</button>
+    </header>
+    <div class="sidebar">
+        <button id="createProject">Create Project</button>
+    </div>
+<!-- todo div template -->
+    <div class="todoDivTemplate" style="display: none;">
+        <h2 class="titleTemplate">Title :</h2>
+        <h2 class="descriptionTemplate">Description :</h2>
+        <h2 class="dueDateTemplate"></h2>
+        <h2 class="priorityTemplate"></h2>
+        <button class="deleteTodoBtn">Delete</button>
+    </div>
+<!-- -------------------- -->
+<div class="mainContainer">
     <dialog id="projectDialog">
             <form id="projectForm" method="dialog">
                 <label for="projectName">Name of project
@@ -18,36 +34,38 @@
                 <button type="submit" id="addProject">Add Project</button>
             </form>
         </dialog>
-    <button id="createTodo">Create todo</button>
-    <dialog id="todoDialog">
-        <form id="formTodo" method="dialog">
-            <label for="title">Title:
-                <input type="text" name="title" id="title" placeholder="Add the title for your task">
-            </label>
-            <label for="description">Description:</label>
-            <textarea name="description" id="description" rows="5" cols="20" placeholder="What is this task about"></textarea>
-            <label for="dueDate">Due date:
-                <input type="date" id="dueDate" name="dueDate" >
-            </label>
-            <label for="priority">Priority:
-                <select name="priority" id="priority">Priority
-                    <option value="high" label="High">High</option>
-                    <option value="medium" label="Medium">Medium</option>
-                    <option value="low" label="Low">Low</option>
-                </select>
-            </label>
-            <label for="notes">Notes:
-                <input type="notes" id="notes" name="notes" placeholder="Some extra notes you wanna add?">
-            </label>
-            <label for="project">
-                <select name="projects" id="projectList">Project:
-                    
-                </select>
-            </label>
-            <button type="submit" id="add" name="add">Add Task</button>
-        </form>
 
-    </dialog>
+        <dialog id="todoDialog">
+            <form id="formTodo" method="dialog">
+                <label for="title">Title:
+                    <input type="text" name="title" id="title" placeholder="Add the title for your task" required>
+                </label>
+                <label for="description">Description:</label>
+                <textarea  required name="description" id="description" rows="5" cols="20" placeholder="What is this task about"></textarea>
+                <label for="dueDate">Due date:
+                    <input type="date" id="dueDate" name="dueDate"  required>
+                </label>
+                <label for="priority">Priority:
+                    <select name="priority" id="priority" required>Priority
+                        <option value="high" label="High">High</option>
+                        <option value="medium" label="Medium">Medium</option>
+                        <option value="low" label="Low">Low</option>
+                    </select>
+                </label>
+                <label for="notes">Notes:
+                    <input type="notes" id="notes" name="notes" placeholder="Some extra notes you wanna add?" required>
+                </label>
+                <label for="project">Save to which project?
+                    <select name="projects" id="projectList" required>Project:
+                        
+                    </select>
+                </label>
+                <button type="submit" id="addTodo" name="addTodo">Add Task</button>
+            </form>
+        </dialog>
+</div>
+    
+    
 
 </body>
 </html>
