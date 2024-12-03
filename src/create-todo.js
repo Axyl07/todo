@@ -7,7 +7,8 @@
         dueDate,
         priority,
         notes,
-        status = true || false,
+         status = true || false,
+        type='todo',
      ) {
          this.project = project;
         this.title = title;

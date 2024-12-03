@@ -11,8 +11,14 @@ import changeProject from "./change-todo-project";
 import changeStatus from "./change-todo-status";
 import changePriority from "./change-todo-priority";
 import updateOptions from "./updateOptions";
+import addToLocal from "./addToLocalStorage";
+import deleteFromLocalStorage from "./deleteFromLocalStorage";
+import getFromLocalStorage from "./getFromLocalStorage";
+const test = getFromLocalStorage();
+console.log(test);
 updateOptions();
-
+// const get = getfromLocal();
+// console.log(get);
 const sampleTodo1 = new todo(
   "1st todo",
   "i cant",
@@ -57,6 +63,7 @@ addProjectBtn.addEventListener('click', () => {
   addProjectToProjectList(projectListArray,createdProject);
   updateOptions();
   console.log(createdProject);
+  addToLocal(createdProject);
   //self note : change project to object in this structure : 
     // function ParentObject(field1, field2) {
     //     this.field1 = field1;
@@ -99,8 +106,7 @@ addTodoBtn.addEventListener("click", () => {
       notes.value
     );
     console.log(createdTodo);
-    let stringTodo = JSON.stringify(createdTodo);
-    localStorage.setItem(stringTodo, stringTodo);
+    addToLocal(createdTodo);
     addToProject(defaultProject, createdTodo);
     const mainContainer = document.querySelector('.mainContainer');
     const todoDivTemplate = document.querySelector('.todoDivTemplate')
@@ -115,9 +121,10 @@ addTodoBtn.addEventListener("click", () => {
     createdTodoDiv.querySelector('.deleteTodoBtn').textContent = 'Delete';
     createdTodoDiv.querySelector('.deleteTodoBtn').addEventListener('click', () => {
       mainContainer.removeChild(createdTodoDiv);
-      let backtoobject = localStorage.getItem(stringTodo);
-      JSON.parse(backtoobject);
-      localStorage.removeItem(backtoobject);
+      // let backtoobject = localStorage.getItem(stringTodo);
+      // JSON.parse(backtoobject);
+      // localStorage.removeItem(backtoobject);
+      deleteFromLocalStorage(createdTodo);
     })
     mainContainer.appendChild(createdTodoDiv);
     

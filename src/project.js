@@ -4,7 +4,7 @@
 //         this.projectName = projectName;
 //     }
 // }
- function createProject(name,desciption) {
+ function createProject(name,desciption,type='project') {
   this.name = name;
   this.desciption = desciption;
   this.todoList = [];
