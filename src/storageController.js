@@ -1,3 +1,15 @@
+export function addToLocal(item)
+{
+    const stringItem = JSON.stringify(item);
+    localStorage.setItem(stringItem, stringItem);
+}
+export function deleteFromLocalStorage(item){
+    const string = JSON.stringify(item);
+    if (localStorage.getItem(string)) {
+        localStorage.removeItem(string);
+    }
+}
+
 // export default function getfromLocal() {
 //     for (const key in localStorage) {
 //         if (Object.prototype.hasOwnProperty.call(localStorage, key)) {
@@ -22,12 +34,13 @@
 //         }
 //     }
 // }
-import populateTodo from "./populateTodo";
+// import populateTodo from "./populateTodo";
 
-export default function getFromLocalStorage() {
-    let todoArray = [];
-    let projectArray = [];
-    
+let todoArray = [];
+let projectArray = [];
+export function getFromLocalStorage() {
+    todoArray.length = 0;
+    projectArray.length = 0;
     // Iterate over all keys in localStorage
     for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i); // Get the key at the current index
@@ -37,12 +50,12 @@ export default function getFromLocalStorage() {
         if (parsedValue && parsedValue.type === 'project') {
             projectArray.push(parsedValue); // Push to projectArray if type is 'project'
         } else if (parsedValue && parsedValue.type === 'todo') {
-            todoArray.push(parsedValue);
-            populateTodo(todoArray);// Push to todoArray if type is 'todo'
+            todoArray.push(parsedValue);// Push to todoArray if type is 'todo'
         }
     }
-
+    // populateTodo(todoArray);
     console.log(projectArray); // Display projectArray
     console.log(todoArray); // Display todoArray
 }
+export { todoArray,projectArray };
 // getFromLocalStorage();

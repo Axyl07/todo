@@ -1,10 +1,13 @@
-import deleteFromLocalStorage from "./deleteFromLocalStorage";
+import { deleteFromLocalStorage } from "./storageController";
 
 export default function populateTodo(todoArray) {
+    console.log('Testing todoArray:', todoArray);
+
     const mainContainer = document.querySelector('.mainContainer');
-const todoDivTemplate = document.querySelector('.todoDivTemplate')
+    const todoDivTemplate = document.querySelector('.todoDivTemplate')
+    mainContainer.innerHTML = '';
     todoArray.forEach(element => {
-        const createdTodoDiv = todoDivTemplate.cloneNode(true);
+    const createdTodoDiv = todoDivTemplate.cloneNode(true);
     createdTodoDiv.id = '';
     createdTodoDiv.style.display = 'block';
     createdTodoDiv.querySelector('.titleTemplate').textContent = 'Title : '+element.title;

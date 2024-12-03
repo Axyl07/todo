@@ -1,4 +1,4 @@
-import todo from "./create-todo";
+import todo from "./todo";
 import {
   createProject,
   addToProject,
@@ -6,17 +6,12 @@ import {
   projectListArray,
   defaultProject,
 } from "./project";
-import addProjectToProjectList from "./addProjectToProjectList";
-import changeProject from "./change-todo-project";
-import changeStatus from "./change-todo-status";
-import changePriority from "./change-todo-priority";
+
 import updateOptions from "./updateOptions";
-import addToLocal from "./addToLocalStorage";
-import deleteFromLocalStorage from "./deleteFromLocalStorage";
-import getFromLocalStorage from "./getFromLocalStorage";
+
+import { deleteFromLocalStorage } from "./storageController";
+
 import populateTodo from "./populateTodo";
-
-
 //   const test = getFromLocalStorage();
 // console.log(test);
 updateOptions();
@@ -70,17 +65,17 @@ addProjectBtn.addEventListener('click', () => {
 })
 
 const createTodoBtn = document.querySelector("#createTodo");
-const dialog = document.querySelector("#todoDialog");
+const todoDialog = document.querySelector("#todoDialog");
 createTodoBtn.addEventListener("click", () => {
-  dialog.show();
+  todoDialog.show();
 });
 
 
 
 const addTodoBtn = document.querySelector("#addTodo");
-addTodoBtn.addEventListener("click", () => {
-
-
+addTodoBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+//get form fields references
   const title = document.querySelector("#title");
   const description = document.querySelector("#description");
   const dueDate = document.querySelector("#dueDate");
@@ -88,7 +83,9 @@ addTodoBtn.addEventListener("click", () => {
   const notes = document.querySelector("#notes");
   const project = document.querySelector("#projectList");
 
-  if (project.value && title.value && description.value && dueDate.value && priority.value && notes.value) {
+  if (project.value==='' || title.value==='' || description.value==='' || dueDate.value==='' || priority.value==='') {
+    alert('Please fill out all the fields');
+  } else {
     const createdTodo = new todo(
       project.value,
       title.value,
@@ -98,10 +95,12 @@ addTodoBtn.addEventListener("click", () => {
       notes.value
     );
     console.log(createdTodo);
-      addToLocal(createdTodo);
-   
-    // addToProject(defaultProject, createdTodo);
-    getFromLocalStorage();
+    addToLocal(createdTodo);
+    addToProject(defaultProject, createdTodo);
+    let arrayOftodo = todoArray;
+    populateTodo(arrayOftodo);
+    // todoDialog.close();
+    //display div logic
     // const mainContainer = document.querySelector('.mainContainer');
     // const todoDivTemplate = document.querySelector('.todoDivTemplate')
     // const createdTodoDiv = todoDivTemplate.cloneNode(true);
@@ -121,8 +120,6 @@ addTodoBtn.addEventListener("click", () => {
     // })
     // mainContainer.appendChild(createdTodoDiv);
     
-  } else {
-    alert('Please fill out all the fields');
   }
 
 });
