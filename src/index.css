@@ -1,0 +1,60 @@
+/* *{
+    color: white;
+    background-color: black;
+} */
+
+.sidebar{
+    grid-column: 1 /2;
+    border-radius: 15px;
+    width: 20vw;
+    height: 80vh;
+    background-color: grey;
+    padding: 20px;
+
+}
+
+.projectDivTemplate{
+    border: 5px solid black;
+    border-radius: 10px;
+}
+
+.mainContainer{
+    /* display: flex; */
+    border-radius: 10px;
+    display: grid;
+
+    margin-right: 10px;
+    grid-column: 3 / -1;
+    background-color: antiquewhite;
+    height: fit-content;
+    padding: 10px;
+
+}
+
+.createdTodoDiv{
+    grid-template-columns: 20vw 20vw 10vw 10vw 5vw;
+    padding: 10px ;
+    border: 3px solid grey;
+    background-color: aqua;
+}
+
+#projectForm{
+    position: relative;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+#formTodo{
+    position: relative;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.ultimateContainer{
+    
+    display: grid;
+    grid-template-columns: 20vw 5vw 75vw;
+}

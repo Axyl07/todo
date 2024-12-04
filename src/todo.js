@@ -1,5 +1,5 @@
 
- export default class todo {
+ export class todo {
      constructor(
         project,
         title,

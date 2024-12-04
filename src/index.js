@@ -1,7 +1,10 @@
-import todo from "./todo";
+import "./index.css";
+
+import { todo, changeTodoPriority, changeTodoProject, changeTodoStatus } from "./todo";
 import {
   createProject,
   addToProject,
+  addProjectToProjectList,
   deletefromProject,
   projectListArray,
   defaultProject,
@@ -9,9 +12,11 @@ import {
 
 import updateOptions from "./updateOptions";
 
-import { deleteFromLocalStorage } from "./storageController";
+import { deleteFromLocalStorage,addToLocal,getFromLocalStorage,todoArray,projectArray,uniqueTodo} from "./storageController";
 
 import populateTodo from "./populateTodo";
+import populateProject from "./populateProjects";
+import populateSpecificProject from "./populateSpecificProject";
 //   const test = getFromLocalStorage();
 // console.log(test);
 updateOptions();
@@ -40,7 +45,7 @@ const sampleTodo2 = new todo(
 // console.log(typeof defaultProject);
 // console.log(defaultProject);
 console.log(projectListArray);
-
+//project
 const createProjectBtn = document.querySelector("#createProject");
 createProjectBtn.addEventListener("click", () => {
   const projectDialog = document.querySelector("#projectDialog");
@@ -62,8 +67,14 @@ addProjectBtn.addEventListener('click', () => {
   updateOptions();
   console.log(createdProject);
   addToLocal(createdProject);
+  getFromLocalStorage();
+  const uniqueProject = projectArray.filter((obj, index, self) => index === self.findIndex((value) => value.name === obj.name));
+  console.log(projectArray);
+  populateProject(uniqueProject);
+
 })
 
+//todo
 const createTodoBtn = document.querySelector("#createTodo");
 const todoDialog = document.querySelector("#todoDialog");
 createTodoBtn.addEventListener("click", () => {
@@ -74,7 +85,7 @@ createTodoBtn.addEventListener("click", () => {
 
 const addTodoBtn = document.querySelector("#addTodo");
 addTodoBtn.addEventListener("click", (event) => {
-  event.preventDefault();
+  // event.preventDefault();
 //get form fields references
   const title = document.querySelector("#title");
   const description = document.querySelector("#description");
@@ -94,11 +105,21 @@ addTodoBtn.addEventListener("click", (event) => {
       priority.value,
       notes.value
     );
-    console.log(createdTodo);
+    // console.log(createdTodo);
     addToLocal(createdTodo);
-    addToProject(defaultProject, createdTodo);
-    let arrayOftodo = todoArray;
-    populateTodo(arrayOftodo);
+    getFromLocalStorage();
+     const uniqueTodo = todoArray.filter((obj, index, self) => index === self.findIndex((value) => value.title === obj.title));
+     const filteredArrayForProject = uniqueTodo.filter((elem) => elem.project === createdTodo.project);
+    populateTodo(filteredArrayForProject)
+    console.log(todoArray);
+    console.log(uniqueTodo);
+    console.log(filteredArrayForProject);
+    
+    
+    // populateTodo(uniqueTodo);
+    // addToProject(defaultProject, createdTodo);
+    // console.log(defaultProject);
+    // populateTodo(arrayOftodo);
     // todoDialog.close();
     //display div logic
     // const mainContainer = document.querySelector('.mainContainer');
