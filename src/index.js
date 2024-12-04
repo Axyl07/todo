@@ -46,6 +46,19 @@ const sampleTodo2 = new todo(
 // console.log(defaultProject);
 console.log(projectListArray);
 //project
+
+
+const defaultProjectBtn = document.querySelector('.defaultProject');
+defaultProjectBtn.addEventListener('click', () => {
+  getFromLocalStorage();
+  const uniqueTodo = todoArray.filter((obj, index, self) => index === self.findIndex((value) => value.title === obj.title));
+
+  const filteredArrayForProject0 = uniqueTodo.filter((elem) => elem.project === 'Default');
+  populateTodo(filteredArrayForProject0);
+  
+
+})
+
 const createProjectBtn = document.querySelector("#createProject");
 createProjectBtn.addEventListener("click", () => {
   const projectDialog = document.querySelector("#projectDialog");
@@ -84,7 +97,7 @@ createTodoBtn.addEventListener("click", () => {
 
 
 const addTodoBtn = document.querySelector("#addTodo");
-addTodoBtn.addEventListener("click", (event) => {
+addTodoBtn.addEventListener("click", () => {
   // event.preventDefault();
 //get form fields references
   const title = document.querySelector("#title");
