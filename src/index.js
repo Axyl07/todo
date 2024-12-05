@@ -1,6 +1,11 @@
 import "./index.css";
 
-import { todo, changeTodoPriority, changeTodoProject, changeTodoStatus } from "./todo";
+import {
+  todo,
+  changeTodoPriority,
+  changeTodoProject,
+  changeTodoStatus,
+} from "./todo";
 import {
   createProject,
   addToProject,
@@ -12,32 +17,47 @@ import {
 
 import updateOptions from "./updateOptions";
 
-import { deleteFromLocalStorage,addToLocal,getFromLocalStorage,todoArray,projectArray,uniqueTodo} from "./storageController";
+import {
+  deleteFromLocalStorage,
+  addToLocal,
+  getFromLocalStorage,
+  todoArray,
+  projectArray,
+  uniqueTodo,
+} from "./storageController";
 
 import populateTodo from "./populateTodo";
 import populateProject from "./populateProjects";
-import populateSpecificProject from "./populateSpecificProject";
+import populateTodosForSpecificProject from "./populateSpecificProject";
+import { init } from "./initPageLoad";
+init();
+const allButtons = document.querySelectorAll('button');
+for (const node of allButtons) {
+  node.addEventListener('click', () => {
+    updateOptions();
+  })
+}
 //   const test = getFromLocalStorage();
 // console.log(test);
 updateOptions();
 // const get = getfromLocal();
 // console.log(get);
-const sampleTodo1 = new todo(
-  "1st todo",
-  "i cant",
-  "25 dec",
-  "low",
-  "some extra notes",
-  true
-);
-const sampleTodo2 = new todo(
-  "2nd todo",
-  "i cant",
-  "225 dec",
-  "mid",
-  "som2e extra notes",
-  false
-);
+// const sampleTodo1 = new todo(
+//   "1st todo",
+//   "i cant",
+//   "25 dec",
+//   "low",
+//   "some extra notes",
+//   true
+// );
+// const sampleTodo2 = new todo(
+//   "2nd todo",
+//   "i cant",
+//   "225 dec",
+//   "mid",
+//   "som2e extra notes",
+//   false
+// );
 // // export { projectListArray };
 // addToProject(defaultProject, sampleTodo1);
 // addToProject(defaultProject, sampleTodo2);
@@ -47,45 +67,60 @@ const sampleTodo2 = new todo(
 console.log(projectListArray);
 //project
 
+// const defaultProjectBtn = document.querySelector(".defaultProject");
+// defaultProjectBtn.addEventListener("click", () => {
+//   getFromLocalStorage();
+//   const uniqueTodo = todoArray.filter(
+//     (obj, index, self) =>
+//       index === self.findIndex((value) => value.title === obj.title)
+//   );
 
-const defaultProjectBtn = document.querySelector('.defaultProject');
-defaultProjectBtn.addEventListener('click', () => {
-  getFromLocalStorage();
-  const uniqueTodo = todoArray.filter((obj, index, self) => index === self.findIndex((value) => value.title === obj.title));
+//   const filteredArrayForProjectDefault = uniqueTodo.filter(
+//     (elem) => elem.project === "Default"
+//   );
+//   populateTodo(filteredArrayForProjectDefault);
+// });
 
-  const filteredArrayForProject0 = uniqueTodo.filter((elem) => elem.project === 'Default');
-  populateTodo(filteredArrayForProject0);
-  
-
+const closeProjectDialogBtn = document.querySelector('#closeDialog');
+closeProjectDialogBtn.addEventListener('click', () => {
+  projectDialog.close()
 })
-
+const closeTodoDialogBtn = document.querySelector('#closeTodoDialog');
+closeTodoDialogBtn.addEventListener('click', () => {
+  todoDialog.close()
+})
 const createProjectBtn = document.querySelector("#createProject");
 createProjectBtn.addEventListener("click", () => {
   const projectDialog = document.querySelector("#projectDialog");
   projectDialog.show();
-  //   const createdProject = createProject();
-//   addProjectToProjectList(projectListArray, createdProject);
-//   console.log(projectListArray);
 });
 
-
-
-const addProjectBtn = document.querySelector('#addProject');
-addProjectBtn.addEventListener('click', () => {
-  const projectNameinput = document.querySelector('#projectName');
-  const projectDescriptioninput = document.querySelector('#projectDescription');
-  
-  const createdProject = new createProject(projectNameinput.value, projectDescriptioninput.value);
-  addProjectToProjectList(projectListArray,createdProject);
+const addProjectBtn = document.querySelector("#addProject");
+addProjectBtn.addEventListener("click", () => {
   updateOptions();
-  console.log(createdProject);
-  addToLocal(createdProject);
-  getFromLocalStorage();
-  const uniqueProject = projectArray.filter((obj, index, self) => index === self.findIndex((value) => value.name === obj.name));
-  console.log(projectArray);
-  populateProject(uniqueProject);
+  const projectNameinput = document.querySelector("#projectName");
+  const projectDescriptioninput = document.querySelector("#projectDescription");
+  if (projectNameinput.value=="") {
+    alert("Please enter a name for the project");
+  } else {
+    const createdProject = new createProject(
+      projectNameinput.value,
+      projectDescriptioninput.value
+    );
+    addProjectToProjectList(projectListArray, createdProject);
+    updateOptions();
+    console.log(createdProject);
+    addToLocal(createdProject);
+    getFromLocalStorage();
+    const uniqueProject = projectArray.filter(
+      (obj, index, self) =>
+        index === self.findIndex((value) => value.name === obj.name)
+    );
+    console.log(projectArray);
+    populateProject(uniqueProject);
 
-})
+  }
+});
 
 //todo
 const createTodoBtn = document.querySelector("#createTodo");
@@ -94,12 +129,10 @@ createTodoBtn.addEventListener("click", () => {
   todoDialog.show();
 });
 
-
-
 const addTodoBtn = document.querySelector("#addTodo");
 addTodoBtn.addEventListener("click", () => {
   // event.preventDefault();
-//get form fields references
+  //get form fields references
   const title = document.querySelector("#title");
   const description = document.querySelector("#description");
   const dueDate = document.querySelector("#dueDate");
@@ -107,8 +140,14 @@ addTodoBtn.addEventListener("click", () => {
   const notes = document.querySelector("#notes");
   const project = document.querySelector("#projectList");
 
-  if (project.value==='' || title.value==='' || description.value==='' || dueDate.value==='' || priority.value==='') {
-    alert('Please fill out all the fields');
+  if (
+    project.value === "" ||
+    title.value === "" ||
+    description.value === "" ||
+    dueDate.value === "" ||
+    priority.value === ""
+  ) {
+    alert("Please fill out all the fields");
   } else {
     const createdTodo = new todo(
       project.value,
@@ -121,14 +160,18 @@ addTodoBtn.addEventListener("click", () => {
     // console.log(createdTodo);
     addToLocal(createdTodo);
     getFromLocalStorage();
-     const uniqueTodo = todoArray.filter((obj, index, self) => index === self.findIndex((value) => value.title === obj.title));
-     const filteredArrayForProject = uniqueTodo.filter((elem) => elem.project === createdTodo.project);
-    populateTodo(filteredArrayForProject)
+    const uniqueTodo = todoArray.filter(
+      (obj, index, self) =>
+        index === self.findIndex((value) => value.title === obj.title)
+    );
+    const filteredArrayForProject = uniqueTodo.filter(
+      (elem) => elem.project === createdTodo.project
+    );
+    populateTodo(filteredArrayForProject);
     console.log(todoArray);
     console.log(uniqueTodo);
     console.log(filteredArrayForProject);
-    
-    
+
     // populateTodo(uniqueTodo);
     // addToProject(defaultProject, createdTodo);
     // console.log(defaultProject);
@@ -153,9 +196,7 @@ addTodoBtn.addEventListener("click", () => {
     //   deleteFromLocalStorage(createdTodo);
     // })
     // mainContainer.appendChild(createdTodoDiv);
-    
   }
-
 });
 
 // const deleteTodoButton = document.querySelector('.deleteTodo');

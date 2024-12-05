@@ -3,6 +3,9 @@
 //     constructor(projectName) {
 //         this.projectName = projectName;
 //     }
+
+import { projectArray } from "./storageController";
+
 // }
 class createProject { 
   constructor(name, desciption) {
@@ -25,7 +28,7 @@ function deletefromProject(projectName, todoName) {
 let projectListArray = [];
 const defaultProject = new createProject('Default','default tasks');
 projectListArray.push(defaultProject);
-
+projectArray.push(defaultProject);
 
 export function addProjectToProjectList(projectListArray,projectName) {
   projectListArray.push(projectName);

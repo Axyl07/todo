@@ -28,9 +28,9 @@
     
     <div class="ultimateContainer">
         <div class="sidebar">
-            <div class="defaultProject">
+            <!-- <div class="defaultProject">
                 <button class="defaultProject">Default Project</button>
-            </div>
+            </div> -->
             <div class="projectDivsArea">
             </div>
             <button id="createProject">Create Project</button>   
@@ -42,12 +42,13 @@
                 <dialog id="projectDialog">
                     <form id="projectForm" method="dialog">
                         <label for="projectName">Name of project
-                            <input type="text" id="projectName" name="projectName">
+                            <input type="text" id="projectName" name="projectName" required>
                         </label>
                         <label for="projectDescription">
                                 Project Description <input type="text" id="projectDescription" name="projectDescription">
                             </label>
                             <button type="submit" id="addProject">Add Project</button>
+                            <button id="closeDialog"  type="button">Close</button>
                         </form>
                     </dialog>
             
@@ -77,6 +78,7 @@
                                 </select>
                             </label>
                             <button type="submit" id="addTodo" name="addTodo">Add Task</button>
+                            <button id="closeTodoDialog"  type="button">Close</button>
                         </form>
                     </dialog>
         
