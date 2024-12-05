@@ -13,11 +13,11 @@ export default function populateTodo(filteredtodoArray) {
     createdTodoDiv.classList.add('createdTodoDiv');
     createdTodoDiv.style.display = 'grid';
     if (element.priority === 'high') {
-      createdTodoDiv.style.backgroundColor = 'red';
+      createdTodoDiv.style.boxShadow = '0px 0px 50px red';
     } else if (element.priority === 'medium') {
-      createdTodoDiv.style.backgroundColor = 'yellow';
+      createdTodoDiv.style.boxShadow = '0px 0px 50px yellow';
     } else {
-      createdTodoDiv.style.backgroundColor = 'green';
+      createdTodoDiv.style.boxShadow = '0px 0px 50px green';
 
     }
     createdTodoDiv.querySelector('.titleTemplate').textContent = 'Title : '+element.title;

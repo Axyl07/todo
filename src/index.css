@@ -2,42 +2,152 @@
     color: white;
     background-color: black;
 } */
-
+body{
+    font-family: 'Poppins';
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
 .sidebar{
+
     grid-column: 1 /2;
     border-radius: 15px;
     width: 20vw;
     height: 80vh;
-    background-color: grey;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: 5px solid white;
     padding: 20px;
 
 }
 
 .projectDivTemplate{
+    display: flex;
     padding: 10px;
     margin: 10px;
-    border: 2px solid black;
+    border: 2px solid rgb(255, 255, 255);
     border-radius: 10px;
+    transition: 0.1s ease-in;
+    align-items: center;
+}
+.projectDivTemplate:hover{
+    transform: translateX(1rem);
 }
 
+.projectTitle{
+    display: flex;
+    font-size: 2rem;
+    padding: 10px;
+    cursor: pointer;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    outline: none   ;
+    border: none;
+    margin: 10px;
+    transition: 0.1s ease-in;
+
+}
+
+.projectTitle:hover{
+
+    background-color: rgb(83, 78, 78);
+    border-radius: 10px;
+}
+.deleteProjectBtn{
+    font-size: 2rem;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 5px;
+    transition: 0.1s ease-in;
+
+}
+.deleteProjectBtn:hover{
+    color: red;
+    border: 2px solid red;
+    border-radius: 10px;
+}
+#createProject{
+    font-size: 2rem;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 5px;
+    transition: 0.1s ease-in;
+}
+#createProject:hover{
+    
+    color: black;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 25px   white;
+}
+.deleteTodoBtn{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    padding: 0;
+    transition: 0.1s ease-in;
+}
+.deleteTodoBtn:hover{
+    color: red;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 0px 50px red;
+    transform: scale(1.01);
+}
 .mainContainer{
+
     /* display: flex; */
     border-radius: 10px;
     display: grid;
-
+    justify-content: center;
     margin-right: 10px;
     grid-column: 3 / -1;
-    background-color: antiquewhite;
+    background-color: rgb(0, 0, 0);
     height: fit-content;
     padding: 10px;
+    border-radius: 15px;
+    border: 5px solid white;
 
+}
+.todoDivTemplate{
+    border-radius: 15px;
+    align-items: center;
+    transition: 0.1s ease-in;
+}
+.todoDivTemplate:hover{
+    transform: scale(1.01);
+}
+#createTodo{
+    cursor: pointer;
+   background-color: black;
+   color: white;
+   border: none;
+    font-size: 2rem;
+    width: fit-content;
+    padding: 5px 10px;
+    transition: 0.1s ease-in;
+}
+#createTodo:hover{
+    box-shadow: 0px 0px 25px   white;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
 }
 
 .createdTodoDiv{
     grid-template-columns: 20vw 20vw 10vw 10vw 5vw;
     padding: 10px ;
     border: 3px solid grey;
-    background-color: aqua;
+    background-color: black;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #projectForm{

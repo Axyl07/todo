@@ -9,7 +9,7 @@ export default function populateProject(filteredProjectArray) {
   filteredProjectArray.forEach((element) => {
     const createdProjectDiv = projectDivTemplate.cloneNode(true);
     createdProjectDiv.id = "";
-    createdProjectDiv.style.display = "block";
+    createdProjectDiv.style.display = "flex";
     createdProjectDiv.querySelector(".projectTitle").textContent =
        element.name;
     createdProjectDiv
