@@ -30,7 +30,7 @@ import populateTodo from "./populateTodo";
 import populateProject from "./populateProjects";
 import populateTodosForSpecificProject from "./populateSpecificProject";
 import { init } from "./initPageLoad";
-// init();
+init();
 const allButtons = document.querySelectorAll('button');
 for (const node of allButtons) {
   node.addEventListener('click', () => {
