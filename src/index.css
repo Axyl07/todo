@@ -1,172 +1,229 @@
-/* *{
-    color: white;
-    background-color: black;
+* {
+  font-family: "poppins";
+}
+body {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+.sidebar {
+  grid-column: 1 /2;
+  border-radius: 15px;
+  width: 20vw;
+  height: 80vh;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border: 5px solid white;
+  padding: 20px;
+}
+
+.projectDivTemplate {
+  width: 18vw;
+  height: 7vh;
+  display: flex;
+  padding: 5px;
+  margin: 10px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  transition: 0.1s ease-in;
+  align-items: center;
+}
+.projectDivTemplate:hover {
+  transform: translateX(1rem);
+}
+
+.projectTitle {
+  display: flex;
+  font-size: 1rem;
+  padding: 10px;
+  cursor: pointer;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  outline: none;
+  border: none;
+  margin: 10px;
+  transition: 0.1s ease-in;
+}
+
+.projectTitle:hover {
+  background-color: rgb(83, 78, 78);
+  border-radius: 10px;
+}
+.deleteProjectBtn {
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 5px;
+  transition: 0.1s ease-in;
+}
+.deleteProjectBtn:hover {
+  color: white;
+  background-color: rgb(255, 95, 95);
+  border-radius: 10px;
+  box-shadow: 0px 0px 50px red;
+}
+#createProject {
+  font-size: 2rem;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 5px;
+  transition: 0.1s ease-in;
+}
+#createProject:hover {
+  color: black;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 25px white;
+}
+.deleteTodoBtn {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  padding: 0;
+  transition: 0.1s ease-in;
+}
+.deleteTodoBtn:hover {
+  color: red;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 0px 50px red;
+  transform: scale(1.01);
+}
+.mainContainer {
+  /* display: flex; */
+  border-radius: 10px;
+  display: grid;
+  justify-content: center;
+  margin-right: 10px;
+  grid-column: 3 / -1;
+  background-color: rgb(0, 0, 0);
+  height: fit-content;
+  padding: 10px;
+  border-radius: 15px;
+  border: 5px solid white;
+}
+.todoDivTemplate {
+  border-radius: 15px;
+  align-items: center;
+  transition: 0.1s ease-in;
+}
+/* .todoDivTemplate:hover{
+    transform: scale(0.99);
 } */
-body{
-    font-family: 'Poppins';
-    background-color: rgb(0, 0, 0);
-    color: white;
+#createTodo {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 2rem;
+  width: fit-content;
+  padding: 5px 10px;
+  transition: 0.1s ease-in;
 }
-.sidebar{
-
-    grid-column: 1 /2;
-    border-radius: 15px;
-    width: 20vw;
-    height: 80vh;
-    background-color: rgb(0, 0, 0);
-    color: white;
-    border: 5px solid white;
-    padding: 20px;
-
-}
-
-.projectDivTemplate{
-    display: flex;
-    padding: 10px;
-    margin: 10px;
-    border: 2px solid rgb(255, 255, 255);
-    border-radius: 10px;
-    transition: 0.1s ease-in;
-    align-items: center;
-}
-.projectDivTemplate:hover{
-    transform: translateX(1rem);
+#createTodo:hover {
+  box-shadow: 0px 0px 25px white;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
 }
 
-.projectTitle{
-    display: flex;
-    font-size: 2rem;
-    padding: 10px;
-    cursor: pointer;
-    background-color: rgb(0, 0, 0);
-    color: white;
-    outline: none   ;
-    border: none;
-    margin: 10px;
-    transition: 0.1s ease-in;
-
+.createdTodoDiv {
+  grid-template-columns: 20vw 20vw 10vw 10vw 5vw;
+  padding: 10px;
+  border: 3px solid grey;
+  background-color: black;
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+dialog {
+  outline: none;
+  border: none;
+}
+input {
+  outline: none;
+  padding: 5px 15px;
+  border-radius: 15px;
+  border: 3px solid white;
+  background-color: black;
+  color: white;
+  font-size: 1.5rem;
+}
+textarea {
+  font-size: 1.5rem;
+  background-color: black;
+  color: white;
+}
+#dueDate {
+  background-color: beige;
+  color: black;
+}
+#projectForm {
+  padding: 15px;
+  border-radius: 15px;
+  background-color: black;
+  color: white;
+  width: fit-content;
+  font-size: 2.5rem;
+  position: relative;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+#projectForm > button {
+  background-color: black;
+  color: white;
+  font-size: 2.5rem;
+  border: 3px solid white;
+  border-radius: 15px;
+}
+#projectForm > button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  box-shadow: 0px 0px 50px rgb(255, 209, 5);
 }
 
-.projectTitle:hover{
-
-    background-color: rgb(83, 78, 78);
-    border-radius: 10px;
+#formTodo {
+  padding: 25px;
+  background-color: black;
+  color: white;
+  font-size: 1.5rem;
+  position: relative;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
 }
-.deleteProjectBtn{
-    font-size: 2rem;
-    cursor: pointer;
-    background-color: black;
-    color: white;
-    border: none;
-    padding: 5px;
-    transition: 0.1s ease-in;
-
+#formTodo > button {
+  background-color: black;
+  color: white;
+  font-size: 2.5rem;
+  border: 3px solid white;
+  border-radius: 15px;
 }
-.deleteProjectBtn:hover{
-    color: red;
-    border: 2px solid red;
-    border-radius: 10px;
+#formTodo > button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  box-shadow: 0px 0px 50px rgb(255, 209, 5);
 }
-#createProject{
-    font-size: 2rem;
-    cursor: pointer;
-    background-color: black;
-    color: white;
-    border: none;
-    padding: 5px;
-    transition: 0.1s ease-in;
-}
-#createProject:hover{
-    
-    color: black;
-    background-color: white;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 25px   white;
-}
-.deleteTodoBtn{
-    cursor: pointer;
-    background-color: black;
-    color: white;
-    border: none;
-    font-size: 1.5rem;
-    padding: 0;
-    transition: 0.1s ease-in;
-}
-.deleteTodoBtn:hover{
-    color: red;
-    border-radius: 10px;
-    background-color: white;
-    box-shadow: 0px 0px 50px red;
-    transform: scale(1.01);
-}
-.mainContainer{
-
-    /* display: flex; */
-    border-radius: 10px;
-    display: grid;
-    justify-content: center;
-    margin-right: 10px;
-    grid-column: 3 / -1;
-    background-color: rgb(0, 0, 0);
-    height: fit-content;
-    padding: 10px;
-    border-radius: 15px;
-    border: 5px solid white;
-
-}
-.todoDivTemplate{
-    border-radius: 15px;
-    align-items: center;
-    transition: 0.1s ease-in;
-}
-.todoDivTemplate:hover{
-    transform: scale(1.01);
-}
-#createTodo{
-    cursor: pointer;
-   background-color: black;
-   color: white;
-   border: none;
-    font-size: 2rem;
-    width: fit-content;
-    padding: 5px 10px;
-    transition: 0.1s ease-in;
-}
-#createTodo:hover{
-    box-shadow: 0px 0px 25px   white;
-    border-radius: 5px;
-    background-color: white;
-    color: black;
+select {
+  padding: 5px;
+  border-radius: 15px;
+  background-color: black;
+  color: white;
+  font-size: 1.5rem;
 }
 
-.createdTodoDiv{
-    grid-template-columns: 20vw 20vw 10vw 10vw 5vw;
-    padding: 10px ;
-    border: 3px solid grey;
-    background-color: black;
-    color: white;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-#projectForm{
-    position: relative;
-    gap: 10px;
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
-}
-#formTodo{
-    position: relative;
-    gap: 10px;
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
-}
-
-.ultimateContainer{
-    
-    display: grid;
-    grid-template-columns: 20vw 5vw 75vw;
+.ultimateContainer {
+  display: grid;
+  grid-template-columns: 20vw 5vw 75vw;
 }

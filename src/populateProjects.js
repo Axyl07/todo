@@ -10,8 +10,7 @@ export default function populateProject(filteredProjectArray) {
     const createdProjectDiv = projectDivTemplate.cloneNode(true);
     createdProjectDiv.id = "";
     createdProjectDiv.style.display = "flex";
-    createdProjectDiv.querySelector(".projectTitle").textContent =
-       element.name;
+    createdProjectDiv.querySelector(".projectTitle").textContent = element.name;
     createdProjectDiv
       .querySelector(".projectTitle")
       .addEventListener("click", () => {

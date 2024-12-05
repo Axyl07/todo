@@ -7,14 +7,14 @@
 import { projectArray } from "./storageController";
 
 // }
-class createProject { 
+class createProject {
   constructor(name, desciption) {
     this.name = name;
     this.desciption = desciption;
-     this.todoList = [];
-     this.type = 'project';
+    this.todoList = [];
+    this.type = "project";
   }
-} 
+}
 //chnage to project list here and add default project first then expot to update option
 
 function addToProject(projectName, todoName) {
@@ -30,8 +30,8 @@ let projectListArray = [];
 // projectListArray.push(defaultProject);
 // projectArray.push(defaultProject);
 
-export function addProjectToProjectList(projectListArray,projectName) {
+export function addProjectToProjectList(projectListArray, projectName) {
   projectListArray.push(projectName);
 }
 
-export { projectListArray,addToProject,deletefromProject,createProject}
+export { projectListArray, addToProject, deletefromProject, createProject };

@@ -31,11 +31,11 @@ import populateProject from "./populateProjects";
 import populateTodosForSpecificProject from "./populateSpecificProject";
 import { init } from "./initPageLoad";
 init();
-const allButtons = document.querySelectorAll('button');
+const allButtons = document.querySelectorAll("button");
 for (const node of allButtons) {
-  node.addEventListener('click', () => {
+  node.addEventListener("click", () => {
     updateOptions();
-  })
+  });
 }
 //   const test = getFromLocalStorage();
 // console.log(test);
@@ -81,14 +81,14 @@ defaultProjectBtn.addEventListener("click", () => {
   populateTodo(filteredArrayForProjectDefault);
 });
 
-const closeProjectDialogBtn = document.querySelector('#closeDialog');
-closeProjectDialogBtn.addEventListener('click', () => {
-  projectDialog.close()
-})
-const closeTodoDialogBtn = document.querySelector('#closeTodoDialog');
-closeTodoDialogBtn.addEventListener('click', () => {
-  todoDialog.close()
-})
+const closeProjectDialogBtn = document.querySelector("#closeDialog");
+closeProjectDialogBtn.addEventListener("click", () => {
+  projectDialog.close();
+});
+const closeTodoDialogBtn = document.querySelector("#closeTodoDialog");
+closeTodoDialogBtn.addEventListener("click", () => {
+  todoDialog.close();
+});
 const createProjectBtn = document.querySelector("#createProject");
 createProjectBtn.addEventListener("click", () => {
   const projectDialog = document.querySelector("#projectDialog");
@@ -103,23 +103,21 @@ addProjectBtn.addEventListener("click", () => {
   // if (projectNameinput.value=="") {
   //   alert("Please enter a name for the project");
   // } else {
-    const createdProject = new createProject(
-      projectNameinput.value,
-      projectDescriptioninput.value
-    );
-    addProjectToProjectList(projectListArray, createdProject);
-    updateOptions();
-    console.log(createdProject);
-    addToLocal(createdProject);
-    getFromLocalStorage();
-    const uniqueProject = projectArray.filter(
-      (obj, index, self) =>
-        index === self.findIndex((value) => value.name === obj.name)
-    );
-    console.log(projectArray);
-    populateProject(uniqueProject);
-
-  
+  const createdProject = new createProject(
+    projectNameinput.value,
+    projectDescriptioninput.value
+  );
+  addProjectToProjectList(projectListArray, createdProject);
+  updateOptions();
+  console.log(createdProject);
+  addToLocal(createdProject);
+  getFromLocalStorage();
+  const uniqueProject = projectArray.filter(
+    (obj, index, self) =>
+      index === self.findIndex((value) => value.name === obj.name)
+  );
+  console.log(projectArray);
+  populateProject(uniqueProject);
 });
 
 //todo
