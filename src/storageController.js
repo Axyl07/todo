@@ -4,14 +4,13 @@ export function addToLocal(item)
 {
     const stringItem = JSON.stringify(item);
     localStorage.setItem(stringItem, stringItem);
-    updateOptions();
+    
 }
 export function deleteFromLocalStorage(item){
     const string = JSON.stringify(item);
     if (localStorage.getItem(string)) {
         localStorage.removeItem(string);
     }
-    updateOptions();
 }
 
 // export default function getfromLocal() {

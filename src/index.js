@@ -30,7 +30,7 @@ import populateTodo from "./populateTodo";
 import populateProject from "./populateProjects";
 import populateTodosForSpecificProject from "./populateSpecificProject";
 import { init } from "./initPageLoad";
-init();
+// init();
 const allButtons = document.querySelectorAll('button');
 for (const node of allButtons) {
   node.addEventListener('click', () => {
@@ -66,20 +66,20 @@ updateOptions();
 // console.log(defaultProject);
 console.log(projectListArray);
 //project
+//default divv<<<
+const defaultProjectBtn = document.querySelector(".defaultProject");
+defaultProjectBtn.addEventListener("click", () => {
+  getFromLocalStorage();
+  const uniqueTodo = todoArray.filter(
+    (obj, index, self) =>
+      index === self.findIndex((value) => value.title === obj.title)
+  );
 
-// const defaultProjectBtn = document.querySelector(".defaultProject");
-// defaultProjectBtn.addEventListener("click", () => {
-//   getFromLocalStorage();
-//   const uniqueTodo = todoArray.filter(
-//     (obj, index, self) =>
-//       index === self.findIndex((value) => value.title === obj.title)
-//   );
-
-//   const filteredArrayForProjectDefault = uniqueTodo.filter(
-//     (elem) => elem.project === "Default"
-//   );
-//   populateTodo(filteredArrayForProjectDefault);
-// });
+  const filteredArrayForProjectDefault = uniqueTodo.filter(
+    (elem) => elem.project === "Default"
+  );
+  populateTodo(filteredArrayForProjectDefault);
+});
 
 const closeProjectDialogBtn = document.querySelector('#closeDialog');
 closeProjectDialogBtn.addEventListener('click', () => {
@@ -100,9 +100,9 @@ addProjectBtn.addEventListener("click", () => {
   updateOptions();
   const projectNameinput = document.querySelector("#projectName");
   const projectDescriptioninput = document.querySelector("#projectDescription");
-  if (projectNameinput.value=="") {
-    alert("Please enter a name for the project");
-  } else {
+  // if (projectNameinput.value=="") {
+  //   alert("Please enter a name for the project");
+  // } else {
     const createdProject = new createProject(
       projectNameinput.value,
       projectDescriptioninput.value
@@ -119,7 +119,7 @@ addProjectBtn.addEventListener("click", () => {
     console.log(projectArray);
     populateProject(uniqueProject);
 
-  }
+  
 });
 
 //todo
@@ -141,7 +141,6 @@ addTodoBtn.addEventListener("click", () => {
   const project = document.querySelector("#projectList");
 
   if (
-    project.value === "" ||
     title.value === "" ||
     description.value === "" ||
     dueDate.value === "" ||
@@ -157,8 +156,10 @@ addTodoBtn.addEventListener("click", () => {
       priority.value,
       notes.value
     );
-    // console.log(createdTodo);
+    console.log(createdTodo);
+    console.log(project.value);
     addToLocal(createdTodo);
+    console.log(createdTodo.project);
     getFromLocalStorage();
     const uniqueTodo = todoArray.filter(
       (obj, index, self) =>

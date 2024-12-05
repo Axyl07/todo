@@ -3,7 +3,7 @@ import { projectListArray } from "./project";
 export default function updateOptions() {
     const selectElement = document.querySelector("#projectList");
     // selectElement.appendChild(defaultProject);
-      selectElement.options.length = 0;
+      // selectElement.options.length = 0;
     let newOptions = projectListArray;
     newOptions.forEach((option) => {
       const opt = document.createElement("option");

@@ -1,5 +1,5 @@
 import { deleteFromLocalStorage } from "./storageController";
-import populateTodosForSpecificProject from "./populateSpecificProject";
+import populateSpecificProject from "./populateSpecificProject";
 
 export default function populateProject(filteredProjectArray) {
   const projectDivsArea = document.querySelector(".projectDivsArea");
@@ -15,7 +15,7 @@ export default function populateProject(filteredProjectArray) {
     createdProjectDiv
       .querySelector(".projectTitle")
       .addEventListener("click", () => {
-        populateTodosForSpecificProject(element.name);
+        populateSpecificProject(element.name);
       });
     createdProjectDiv.querySelector(".deleteProjectBtn").textContent =
       "Delete Project";
