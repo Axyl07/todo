@@ -80,9 +80,4 @@ Feel free to contribute by submitting issues or pull requests. Let's make this p
 
 ---
 
-## 📄 License
-This project is licensed under the [MIT License](LICENSE).
-
----
-
 Enjoy managing your tasks with the **Todo List Application**! 🎉
