@@ -122,12 +122,12 @@ addProjectBtn.addEventListener("click", () => {
 
 //todo
 const createTodoBtn = document.querySelector("#createTodo");
-const todoDialog = document.querySelector("#todoDialog");
+export const todoDialog = document.querySelector("#todoDialog");
 createTodoBtn.addEventListener("click", () => {
   todoDialog.show();
 });
 
-const addTodoBtn = document.querySelector("#addTodo");
+export const addTodoBtn = document.querySelector("#addTodo");
 addTodoBtn.addEventListener("click", () => {
   // event.preventDefault();
   //get form fields references

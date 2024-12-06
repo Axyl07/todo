@@ -19,6 +19,15 @@ export class todo {
   }
 }
 
+export function updateTodo(todoName,project,title,description,dueDate,priority,notes) {
+  todoName.project = project;
+  todoName.title = title;
+  todoName.description = description;
+  todoName.dueDate = dueDate;
+  todoName.priority = priority;
+  todoName.notes= notes;
+}
+
 export function changeTodoStatus(todo, status) {
   if (status == true) {
     todo.status = true;
