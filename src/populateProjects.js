@@ -1,5 +1,6 @@
 import { deleteFromLocalStorage } from "./storageController";
 import populateSpecificProject from "./populateSpecificProject";
+import updateOptions from "./updateOptions";
 
 export default function populateProject(filteredProjectArray) {
   const projectDivsArea = document.querySelector(".projectDivsArea");
@@ -16,13 +17,14 @@ export default function populateProject(filteredProjectArray) {
       .addEventListener("click", () => {
         populateSpecificProject(element.name);
       });
-    createdProjectDiv.querySelector(".deleteProjectBtn").textContent =
-      "Delete Project";
+    // createdProjectDiv.querySelector(".deleteProjectBtn").textContent =
+    //   "Delete Project";
     createdProjectDiv
       .querySelector(".deleteProjectBtn")
       .addEventListener("click", () => {
         deleteFromLocalStorage(element);
         projectDivsArea.removeChild(createdProjectDiv);
+        updateOptions();
       });
     projectDivsArea.appendChild(createdProjectDiv);
   });

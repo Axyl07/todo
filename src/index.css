@@ -5,22 +5,35 @@ body {
   background-color: rgb(0, 0, 0);
   color: white;
 }
+form > button {
+  width: 10rem;
+}
+
+button {
+  width: fit-content;
+  padding: 5px 10px;
+}
 .sidebar {
-  grid-column: 1 /2;
+  grid-column: 1 / 2;
   border-radius: 15px;
   width: 20vw;
   height: 80vh;
   background-color: rgb(0, 0, 0);
   color: white;
-  border: 5px solid white;
+  border: 2px solid white;
   padding: 20px;
+  justify-items: center;
+}
+header {
+  justify-items: center;
 }
 
 .projectDivTemplate {
-  width: 18vw;
-  height: 7vh;
+  width: 19vw;
+  height: 5vh;
   display: flex;
-  padding: 5px;
+  padding: 10px;
+  justify-content: space-between;
   margin: 10px;
   border: 2px solid rgb(255, 255, 255);
   border-radius: 10px;
@@ -28,19 +41,22 @@ body {
   align-items: center;
 }
 .projectDivTemplate:hover {
-  transform: translateX(1rem);
+  transform: scale(1.05);
+  background-color: rgb(83, 78, 78);
+  border-radius: 10px;
 }
 
 .projectTitle {
   display: flex;
-  font-size: 1rem;
-  padding: 10px;
+  font-size: 1.25rem;
+  padding: 5px 25px;
   cursor: pointer;
   background-color: rgb(0, 0, 0);
   color: white;
   outline: none;
   border: none;
-  margin: 10px;
+  width: 16vw;
+  height: 5vh;
   transition: 0.1s ease-in;
 }
 
@@ -49,22 +65,26 @@ body {
   border-radius: 10px;
 }
 .deleteProjectBtn {
-  font-size: 1rem;
+  background-image: url(./assets/icons/delete-svgrepo-com.svg);
+  font-size: 1.25rem;
+  background-size: contain;
+  justify-content: space-between;
+  background-repeat: no-repeat;
+  /* display: inline-block; */
+  height: 3.5rem;
+  width: 3.5rem;
+  border-radius: 30%;
   cursor: pointer;
-  background-color: black;
-  color: white;
+  padding: 0px;
   border: none;
-  padding: 5px;
   transition: 0.1s ease-in;
 }
 .deleteProjectBtn:hover {
-  color: white;
-  background-color: rgb(255, 95, 95);
-  border-radius: 10px;
+  border-radius: 30%;
   box-shadow: 0px 0px 50px red;
 }
 #createProject {
-  font-size: 2rem;
+  font-size: 1.25rem;
   cursor: pointer;
   background-color: black;
   color: white;
@@ -77,36 +97,63 @@ body {
   background-color: white;
   padding: 10px;
   border-radius: 10px;
-  box-shadow: 0px 0px 25px white;
+  box-shadow: 0px 0px 25px cyan;
 }
 .deleteTodoBtn {
+  background-image: url(./assets/icons/delete-svgrepo-com.svg);
+  font-size: 1.25rem;
+  background-size: contain;
+  justify-content: space-between;
+  background-repeat: no-repeat;
+  /* display: inline-block; */
+  height: 3.5rem;
+  width: 3.5rem;
+  border-radius: 30%;
   cursor: pointer;
-  background-color: black;
-  color: white;
+  padding: 0px;
   border: none;
-  font-size: 1.5rem;
-  padding: 0;
   transition: 0.1s ease-in;
 }
 .deleteTodoBtn:hover {
-  color: red;
-  border-radius: 10px;
-  background-color: white;
+  border-radius: 30%;
   box-shadow: 0px 0px 50px red;
-  transform: scale(1.01);
+}
+.editTodo {
+  background-image: url(./assets/icons/edit-svgrepo-com.svg);
+  font-size: 1.25rem;
+  background-size: contain;
+  justify-content: space-between;
+  background-repeat: no-repeat;
+  /* display: inline-block; */
+  height: 3.5rem;
+  width: 3.5rem;
+  border-radius: 30%;
+  cursor: pointer;
+  padding: 0px;
+  border: none;
+  transition: 0.1s ease-in;
+}
+.editTodo:hover {
+  border-radius: 30%;
+  box-shadow: 0px 0px 50px yellow;
+}
+#completed {
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: lime;
 }
 .mainContainer {
   /* display: flex; */
   border-radius: 10px;
   display: grid;
-  justify-content: center;
+  justify-items: center;
   margin-right: 10px;
   grid-column: 3 / -1;
   background-color: rgb(0, 0, 0);
   height: fit-content;
   padding: 10px;
   border-radius: 15px;
-  border: 5px solid white;
+  border: 2px solid white;
 }
 .todoDivTemplate {
   border-radius: 15px;
@@ -121,20 +168,44 @@ body {
   background-color: black;
   color: white;
   border: none;
-  font-size: 2rem;
+  font-size: 1.25rem;
   width: fit-content;
   padding: 5px 10px;
   transition: 0.1s ease-in;
 }
 #createTodo:hover {
-  box-shadow: 0px 0px 25px white;
+  box-shadow: 0px 0px 25px cyan;
   border-radius: 5px;
   background-color: white;
   color: black;
 }
-
+.defaultProject {
+  width: 19vw;
+  height: 7vh;
+  border: 3px solid white;
+  display: flex;
+  font-size: 1.25rem;
+  padding: 10px;
+  cursor: pointer;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  outline: none;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  transition: 0.1s ease-in;
+  margin: 10px;
+}
+.defaultProject:hover {
+  transform: scale(1.1);
+  background-color: rgba(116, 255, 243, 0.623);
+  border-radius: 10px;
+}
+form {
+  border-radius: 20px;
+}
 .createdTodoDiv {
-  grid-template-columns: 20vw 20vw 10vw 10vw 5vw;
+  grid-template-columns: 12vw 12vw 12vw 12vw 10vw 10vw;
   padding: 10px;
   border: 3px solid grey;
   background-color: black;
@@ -153,10 +224,10 @@ input {
   border: 3px solid white;
   background-color: black;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 textarea {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   background-color: black;
   color: white;
 }
@@ -164,13 +235,16 @@ textarea {
   background-color: beige;
   color: black;
 }
+dialog {
+  border-radius: 20px;
+}
 #projectForm {
   padding: 15px;
   border-radius: 15px;
   background-color: black;
   color: white;
   width: fit-content;
-  font-size: 2.5rem;
+  font-size: 1.25rem;
   position: relative;
   gap: 10px;
   display: flex;
@@ -180,7 +254,7 @@ textarea {
 #projectForm > button {
   background-color: black;
   color: white;
-  font-size: 2.5rem;
+  font-size: 1.25rem;
   border: 3px solid white;
   border-radius: 15px;
 }
@@ -191,25 +265,29 @@ textarea {
   box-shadow: 0px 0px 50px rgb(255, 209, 5);
 }
 
-#formTodo {
+#formTodo,
+#updateformTodo {
   padding: 25px;
   background-color: black;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   position: relative;
   gap: 10px;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   width: fit-content;
 }
-#formTodo > button {
+#formTodo > button,
+#updateformTodo > button {
   background-color: black;
   color: white;
-  font-size: 2.5rem;
+  font-size: 1.25rem;
   border: 3px solid white;
   border-radius: 15px;
 }
-#formTodo > button:hover {
+#formTodo > button:hover,
+#updateformTodo > button:hover {
   cursor: pointer;
   background-color: white;
   color: black;
@@ -220,7 +298,7 @@ select {
   border-radius: 15px;
   background-color: black;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 .ultimateContainer {

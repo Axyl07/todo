@@ -18,11 +18,10 @@
         <h2 class="titleTemplate">Title :</h2>
         <h2 class="descriptionTemplate">Description :</h2>
         <h2 class="dueDateTemplate"></h2>
-        <h2 class="priorityTemplate"></h2>
-        <button class="editTodo">Edit</button>
-        <button class="deleteTodoBtn">Delete</button>
-        <label for="completed">Completed?
-            <input id="completed" name="completed" type="checkbox">
+        <button class="editTodo" title="Edit Todo"></button>
+        <button class="deleteTodoBtn" title="Delete Todo"></button>
+        <label for="completed">
+            <input id="completed" name="completed" type="checkbox" title="Mark as complete">
         </label>
     </div>
     <!-- -------------------- -->
@@ -30,18 +29,21 @@
     <!-- projectDivTemplate -->
     <div class="projectDivTemplate" style="display: none;">
         <button class="projectTitle"></button>
-        <button class="deleteProjectBtn"></button>
+        
+        <button class="deleteProjectBtn">
+            
+        </button>
     </div>
     
     
     <div class="ultimateContainer">
         <div class="sidebar">
-            <div class="defaultProject">
+            <button id="createProject">Create Project</button>   
+            <div class="defaultProjectClass">
                 <button class="defaultProject">Default Project</button>
             </div>
             <div class="projectDivsArea">
             </div>
-            <button id="createProject">Create Project</button>   
         </div>
         
         <div class="mainContainer">

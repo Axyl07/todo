@@ -171,6 +171,7 @@ addTodoBtn.addEventListener("click", () => {
     console.log(uniqueTodo);
     console.log(filteredArrayForProject);
 
+    
     // populateTodo(uniqueTodo);
     // addToProject(defaultProject, createdTodo);
     // console.log(defaultProject);

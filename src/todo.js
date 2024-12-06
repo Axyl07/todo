@@ -26,10 +26,22 @@ export function changeTodoStatus(todo, status) {
     todo.status = false;
   }
 }
+export function changeTodoTitle(todo, title){
+  todo.title = title;
+}
+export function changeTodoDueDate(todo, dueDate) {
+  todo.dueDate = dueDate
+}
+
 export function changeTodoProject(todoName, targetProjectName) {
   todoName.project = targetProjectName;
 }
-
+export function changeTodoNotes(todoName, notes) {
+  todoName.notes = notes;
+}
+export function changeTodoDescription(todoName, description) {
+  todoName.description = description;
+}
 export function changeTodoPriority(todo, priority) {
   todo.priority = priority;
 }
